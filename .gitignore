@@ -1,0 +1,17 @@
+
+bin/Debug/net8.0/HashGenerator
+bin/Debug/net8.0/HashGenerator.deps.json
+bin/Debug/net8.0/HashGenerator.dll
+bin/Debug/net8.0/HashGenerator.pdb
+bin/Debug/net8.0/HashGenerator.runtimeconfig.json
+obj/Debug/net8.0/apphost
+obj/Debug/net8.0/HashGenerator.AssemblyInfo.cs
+obj/Debug/net8.0/HashGenerator.AssemblyInfoInputs.cache
+obj/Debug/net8.0/HashGenerator.csproj.CoreCompileInputs.cache
+obj/Debug/net8.0/HashGenerator.csproj.FileListAbsolute.txt
+obj/Debug/net8.0/HashGenerator.dll
+obj/Debug/net8.0/HashGenerator.genruntimeconfig.cache
+obj/Debug/net8.0/HashGenerator.pdb
+obj/Debug/net8.0/HashGenerator.sourcelink.json
+obj/Debug/net8.0/ref/HashGenerator.dll
+obj/Debug/net8.0/refint/HashGenerator.dll
