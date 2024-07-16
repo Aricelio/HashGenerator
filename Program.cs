@@ -9,12 +9,12 @@ namespace HashGenerator
         public static void Main(string[] args)
         {
             Console.WriteLine("Inform the source value:");
-            string source = Console.ReadLine();
+            string? source = Console.ReadLine();
 
             Console.WriteLine("Inform the salt value:");
-            string salt = Console.ReadLine();
+            string? salt = Console.ReadLine();
 
-            string hash = source.CustomHash(salt);
+            string? hash = source?.CustomHash(salt);
             Console.WriteLine($"Hash generated: {hash}");
         }
     }

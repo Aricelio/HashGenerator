@@ -4,6 +4,7 @@ using System.Text;
 
 namespace HashGenerator.Extensions
 {
+    /// <summary>Strig Extensrion class</summary>
     public static class StringExtension
     {
         /// <summary>String with all characters on alphabet</summary>
@@ -16,29 +17,31 @@ namespace HashGenerator.Extensions
         /// <param name="source">The source</param>
         /// <param name="salt">The sault</param>
         /// <returns>The hash</returns>
-        public static string CustomHash(this string source, string salt = "")
+        public static string CustomHash(this string source, string? salt)
         {
-            byte[] array;
-            using (SHA256Managed sHA256Managed = new SHA256Managed())
-            {
-                array = sHA256Managed.ComputeHash(Encoding.UTF8.GetBytes(salt + source));
-            }
-
-            char[] array2 = _arrayPool.Rent(16);
+            // Convert the input values into a byte data
+            var byteString = Encoding.UTF8.GetBytes(salt + source);
+            
+            // Gets the SHA256 hash from the byte string
+            byte[] byteArray = SHA256.HashData(byteString);
+            
+            // Gets a char array with at least 16 of length
+            char[] charArray = _arrayPool.Rent(16);
             int num = 1;
             int num2 = 0;
-            while (num < array.Length)
+
+            while (num < byteArray.Length)
             {
-                byte num3 = array[num - 1];
-                byte b = array[num];
+                byte num3 = byteArray[num - 1];
+                byte b = byteArray[num];
                 int num4 = num3 + b;
-                array2[num2] = _alphabet[num4 % _alphabet.Length];
+                charArray[num2] = _alphabet[num4 % _alphabet.Length];
                 num += 2;
                 num2++;
             }
 
-            string result = new string(array2[..16]);
-            _arrayPool.Return(array2);
+            string result = new (charArray[..16]);
+            _arrayPool.Return(charArray);
             return result;
         }
     }
